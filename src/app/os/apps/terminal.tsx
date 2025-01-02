@@ -142,7 +142,7 @@ export default function Terminal({
     ],
     [
       "achievements",
-      "[gold]• Second Place[/] in Stack Hacks 2023\n ",
+      "[gold]• Second Place in Stack Hacks 2023 [/] [gray] \n • 5500 extenstion installs in VS Code [/] \n [brown] • 2200 npm package installs ",
       "My achievements",
     ],
     [
@@ -339,7 +339,7 @@ export default function Terminal({
       </div>
       <div
         ref={outputRef}
-        className="p-4 bg-gray-800 bg-opacity-90 h-[calc(100%-2.5rem)] overflow-y-auto custom-scrollbar"
+        className="p-4 bg-gray-800 bg-opacity-50 h-[calc(100%-2.5rem)] overflow-y-auto custom-scrollbar"
         onClick={() => {
           inputRef.current?.focus();
           bringToFront(id);

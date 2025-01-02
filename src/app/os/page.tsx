@@ -7,10 +7,13 @@ import { ZIndexProvider } from "@/Contexts/ZIndexContext";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
+import './page.css'
+// import Dock from "@/components/ui/Dock";
+
 export default function OS() {
   return (
     <ZIndexProvider>
-      <div className="bg-gray-900 text-white w-screen h-screen flex items-center justify-center font-mono overflow-hidden relative">
+      <div className="bg-url text-white w-screen h-screen flex items-center justify-center font-mono overflow-hidden relative">
         <Link
           href="/"
           className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
@@ -34,6 +37,7 @@ export default function OS() {
           icon="/imgs/Credits.png"
           component={Credits}
         />
+        {/* <Dock /> */}
       </div>
     </ZIndexProvider>
   );

@@ -94,7 +94,7 @@ export default function Calculator({ onClose, id }: CalculatorProps) {
 
     const isMobile = window.innerWidth < 768;
     const defaultWidth = isMobile ? 320 : 550;
-    const defaultHeight = 400;
+    const defaultHeight = 475;
 
     setCalculatorSize({
       width: defaultWidth,
@@ -131,6 +131,10 @@ export default function Calculator({ onClose, id }: CalculatorProps) {
         handleButtonClick("C");
       } else if (key === "Backspace") {
         setInput(input.slice(0, -1));
+      } else if (key === ".") {
+        handleButtonClick(".");
+      } else if (key === "√") {
+        handleButtonClick("√");
       }
     };
 
@@ -145,6 +149,13 @@ export default function Calculator({ onClose, id }: CalculatorProps) {
     } else if (value === "=") {
       try {
         const evalResult = evaluate(input);
+        setResult(evalResult.toString());
+      } catch {
+        setResult("Error");
+      }
+    } else if (value === "√") {
+      try {
+        const evalResult = evaluate(`sqrt(${input})`);
         setResult(evalResult.toString());
       } catch {
         setResult("Error");
@@ -165,18 +176,16 @@ export default function Calculator({ onClose, id }: CalculatorProps) {
       default={{
         x: position.x,
         y: position.y,
-        width: calculatorSize.width,
-        height: calculatorSize.height,
+        width: 400,
+        height: 475,
       }}
       position={{ x: position.x, y: position.y }}
-      size={{ width: calculatorSize.width, height: calculatorSize.height }}
-      minHeight={400}
-      minWidth={320}
+      size={{ width: 400, height: 475 }}
       bounds="parent"
-      className="rounded-lg shadow-lg bg-gray-800 bg-opacity-90 text-white"
+      className="rounded-lg shadow-lg bg-gray-800 bg-opacity-85 text-white"
       dragHandleClassName="calculator-header"
       onDragStop={onDragStop}
-      onResize={onResize}
+      enableResizing={{}}
       onClick={() => {
         bringToFront(id);
       }}
@@ -220,9 +229,11 @@ export default function Calculator({ onClose, id }: CalculatorProps) {
             "3",
             "-",
             "0",
-            "C",
+            ".",
             "+",
             "=",
+            "√",
+            "C",
           ].map((value) => (
             <button
               key={value}

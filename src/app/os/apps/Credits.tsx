@@ -54,8 +54,7 @@ export default function Credits({
       }));
     };
 
-    const isMobile = window.innerWidth < 768;
-    const defaultWidth = 320;
+    const defaultWidth = 450;
     const defaultHeight = 150;
 
     setCreditsSize({ width: defaultWidth, height: defaultHeight });
@@ -88,12 +87,12 @@ export default function Credits({
       position={{ x: position.x, y: position.y }}
       size={{ width: creditsSize.width, height: creditsSize.height }}
       minHeight={200}
-      minWidth={320}
+      minWidth={450}
       bounds="parent"
       className="rounded-lg shadow-lg bg-gray-800 bg-opacity-90 text-white"
       dragHandleClassName="credits-header"
       onDragStop={onDragStop}
-      onResize={onResize}
+      enableResizing={{}}
       onClick={() => bringToFront(id)}
       style={{ zIndex: zIndexes.indexOf(id) + 1 }}
     >
@@ -116,9 +115,14 @@ export default function Credits({
       <div className="p-4">
         <h2 className="text-lg font-bold mb-4">Credits</h2>
         <ul className="list-disc list-inside">
+        <li>
+            <span className="text-yellow-400">Icons:</span> Unicons by Rhino Linux
+          </li>
           <li>
-            <span className="text-yellow-400">Icons:</span> Unicons by Rhino
-            Linux
+            <span className="text-peach-400">Jad:</span> Kool
+          </li>
+          <li>
+            <span className="text-brown-800">Evaan:</span> Idk
           </li>
         </ul>
       </div>

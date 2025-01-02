@@ -184,7 +184,7 @@ export default function Portfolio() {
               <div
                 dangerouslySetInnerHTML={{
                   __html: parseColorCodes(
-                    "[gold]Second Place[/] in Stack Hacks 2023",
+                    "[gold]• Second Place in Stack Hacks 2023 [/] [gray] <br> • 5500 extenstion installs in VS Code [/] [brown] <br> • 2200 npm package installs",
                   ),
                 }}
               />
